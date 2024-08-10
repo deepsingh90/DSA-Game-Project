@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background: #e4e9f7;
+}
+.container{
+    display: flex;
+    min-height: 90vh;
+}
+.box{
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5);
+}
+.form-box{
+    width: 450px;
+    margin: 0px 10px;
+}
+.form-box header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+.form-box form .field{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+
+}
+.form-box form .input input{
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.btn{
+    height: 35px;
+    background: rgba(76,68,182,0.808);
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+.btn:hover{
+    opacity: 0.82;
+}
+.submit{
+    width: 100%;
+}
+.links{
+    margin-bottom: 15px;
+}
+
+/********* Home *****************/
+
+.nav{
+    background: rgb(157, 119, 138);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 60px;
+    z-index: 100;
+    
+}
+.welcome{
+    font-size: 25px;
+    font-weight: 900;
+    
+}
+.welcome a{
+    text-decoration: none;
+    color: #000;
+}
+.right-links a{
+    padding: 0 10px;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.main-box{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.main-box .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bottom{
+    width: 100%;
+    margin-top: 20px;
+}
+@media only screen and (max-width:840px){
+    .main-box .top{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .top .box{
+        margin: 10px 10px;
+    }
+    .bottom{
+        margin-top: 0;
+    }
+}
+.message{
+    text-align: center;
+    background: #f9eded;
+    padding: 15px 0px;
+    border:1px solid #699053;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: red;
+}
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    /* Ensure padding and border are included in total width and height */
+}
+.merged{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background-color: burlywood;
+    
+    
+
+}
+
+.container {
+    width: 100%;
+    max-width: 800px; /* Increased width for better content fit */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* Prevents content overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+/* Header */
+header h1 {
+    font-size: 2em;
+    color: #34495e;
+    margin-bottom: 30px;
+}
+
+/* Form Section */
+.form-section .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+.input-group .btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+}
+
+.primary-btn {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background-color: #3498db;
+}
+
+.secondary-btn {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+.secondary-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Output Section */
+.output-section {
+    margin-top: 30px;
+}
+
+.output-group h2 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.output-group h2 span {
+    color: #16a085;
+    font-weight: bold;
+}
+
+.expense-list {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.expense-list h3 {
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.expense-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expense-list li {
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.expense-list li span {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Add styles for the delete button */
+.expense-list button.delete-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.expense-list button.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Styles for the compound interest table */
+#compoundInterestTable {
+    margin-top: 20px;
+}
+
+.compound-interest-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px; /* Adjusted for better fit */
+    margin: 0 auto; /* Center the table */
+}
+
+.compound-interest-table th, .compound-interest-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+}
+
+.compound-interest-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.compound-interest-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
