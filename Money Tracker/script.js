@@ -1,98 +1,7 @@
-class TrieNode {
-    constructor() {
-        this.children = {};
-        this.isEndOfWord = false;
-        this.amount = 0;
-    }
-}
-
-class Trie {
-    constructor() {
-        this.root = new TrieNode();
-    }
-
-    insert(expenseName, amount) {
-        let node = this.root;
-        for (let char of expenseName) {
-            if (!node.children[char]) {
-                node.children[char] = new TrieNode();
-            }
-            node = node.children[char];
-        }
-        node.isEndOfWord = true;
-        node.amount += amount;
-    }
-
-    remove(expenseName) {
-        this._remove(this.root, expenseName, 0);
-    }
-
-    _remove(node, expenseName, index) {
-        if (index === expenseName.length) {
-            if (!node.isEndOfWord) return false;
-            node.isEndOfWord = false;
-            return Object.keys(node.children).length === 0;
-        }
-
-        const char = expenseName[index];
-        const childNode = node.children[char];
-        if (!childNode) return false;
-
-        const shouldDeleteChild = this._remove(childNode, expenseName, index + 1);
-
-        if (shouldDeleteChild) {
-            delete node.children[char];
-            return !node.isEndOfWord && Object.keys(node.children).length === 0;
-        }
-        return false;
-    }
-
-    getAmount(expenseName) {
-        let node = this.root;
-        for (let char of expenseName) {
-            if (!node.children[char]) {
-                return 0;
-            }
-            node = node.children[char];
-        }
-        return node.isEndOfWord ? node.amount : 0;
-    }
-
-    calculateTotalExpenses() {
-        return this._calculateTotal(this.root);
-    }
-
-    _calculateTotal(node) {
-        let total = 0;
-        if (node.isEndOfWord) {
-            total += node.amount;
-        }
-        for (let child in node.children) {
-            total += this._calculateTotal(node.children[child]);
-        }
-        return total;
-    }
-
-    getAllExpenses() {
-        const expenses = [];
-        this._collectExpenses(this.root, '', expenses);
-        return expenses;
-    }
-
-    _collectExpenses(node, prefix, expenses) {
-        if (node.isEndOfWord) {
-            expenses.push({ name: prefix, amount: node.amount });
-        }
-        for (let char in node.children) {
-            this._collectExpenses(node.children[char], prefix + char, expenses);
-        }
-    }
-}
-
 class User {
     constructor() {
         this.income = 0;
-        this.expenses = new Trie();
+        this.expenses = []; // Use an array of expense objects
     }
 
     setIncome(amount) {
@@ -107,16 +16,23 @@ class User {
             return false;
         }
 
-        this.expenses.insert(name, amount);
+        // Check if expense with the same name exists and update, else add new
+        const existingExpense = this.expenses.find(expense => expense.name === name);
+        if (existingExpense) {
+            existingExpense.amount += amount;
+        } else {
+            this.expenses.push({ name, amount });
+        }
         return true;
     }
 
     deleteExpense(name) {
-        this.expenses.remove(name);
+        // Filter out the expense to delete it
+        this.expenses = this.expenses.filter(expense => expense.name !== name);
     }
 
     getTotalExpenses() {
-        return this.expenses.calculateTotalExpenses();
+        return this.expenses.reduce((total, expense) => total += expense.amount, 0);
     }
 
     getSavings() {
@@ -124,7 +40,7 @@ class User {
     }
 
     getAllExpenses() {
-        return this.expenses.getAllExpenses();
+        return this.expenses;
     }
 }
 
